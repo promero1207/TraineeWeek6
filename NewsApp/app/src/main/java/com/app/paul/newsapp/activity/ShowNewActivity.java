@@ -41,13 +41,13 @@ public class ShowNewActivity extends AppCompatActivity {
             web_url = bundle.getString(SHOW_WEB);
         }
 
-        TextView textviewTitle = findViewById(R.id.title_new);
-        TextView textviewBody = findViewById(R.id.content_new);
+        TextView textViewTitle = findViewById(R.id.title_new);
+        TextView textViewBody = findViewById(R.id.content_new);
         final TextView web = findViewById(R.id.web);
         ImageView img = findViewById(R.id.img_new);
 
-        textviewTitle.setText(title);
-        textviewBody.setText(body);
+        textViewTitle.setText(title);
+        textViewBody.setText(body);
         if(!"".equals(img_url)) {
             img.setVisibility(View.INVISIBLE);
             new AdapterRvMainNews.DownloadImageTask(img).execute(img_url);
@@ -75,10 +75,10 @@ public class ShowNewActivity extends AppCompatActivity {
     }
 
 
-    //metho for open web url on browser
-    public void openWebPage(String url) {
-        Uri webpage = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+    //method for open web url on browser
+    private void openWebPage(String url) {
+        Uri webPage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }

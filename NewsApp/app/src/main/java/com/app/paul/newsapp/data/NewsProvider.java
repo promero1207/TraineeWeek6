@@ -41,12 +41,6 @@ public class NewsProvider extends ContentProvider {
          */
         uriMatcher.addURI("com.app.paul.newsapp", "news", NEWS);
 
-
-        /*
-         * Sets the code for a single row to 2. In this case, the "#" wildcard is
-         * used. "content://com.example.app.provider/table3/3" matches, but
-         * "content://com.example.app.provider/table3 doesn't.
-         */
     }
 
     //Method for select on database query

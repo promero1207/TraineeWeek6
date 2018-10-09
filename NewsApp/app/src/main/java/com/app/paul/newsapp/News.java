@@ -13,7 +13,6 @@ public class News implements Parcelable {
     private String thumbnail;
     private String body;
     private String web;
-    private int category;
     private String newsId;
     private int isReadLater;
 
@@ -28,13 +27,12 @@ public class News implements Parcelable {
         this.isReadLater = isReadLater;
     }
 
-    public News(int category, String headline, String section, String thumbnail, String body, String web, int isReadLater, String newsId) {
+    public News(String headline, String section, String thumbnail, String body, String web, int isReadLater, String newsId) {
         this.headline = headline;
         this.section = section;
         this.thumbnail = thumbnail;
         this.body = body;
         this.web = web;
-        this.category = category;
         this.isReadLater = isReadLater;
         this.newsId = newsId;
     }

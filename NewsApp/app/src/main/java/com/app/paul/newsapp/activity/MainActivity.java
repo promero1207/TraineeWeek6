@@ -12,8 +12,6 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.app.paul.newsapp.R;
 import com.app.paul.newsapp.adapter.AdapterFragmentPager;

@@ -3,8 +3,8 @@ package com.app.paul.newsapp.activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -80,25 +80,25 @@ public class ReadLaterActivity extends AppCompatActivity implements AdapterReadL
                 args,                   // Selection criteria
                 null);
 
+        //Column index for each field
         int idColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry._ID);
-        int categoryColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_CATEGORY);
         int nameColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_NEWS_NAME);
         int bodyColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_NEWS_BODY);
         int sectionColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_NEWS_SECTION);
         int imgColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_NEWS_IMG);
         int isReadLaterColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_IS_READ_LATER);
 
+        //Filling list with DB data
         try {
             listReadLater.clear();
             while (cursor.moveToNext()) {
                 String id = cursor.getString(idColumnIndex);
-                int category = cursor.getInt(categoryColumnIndex);
                 String title = cursor.getString(nameColumnIndex);
                 String body = cursor.getString(bodyColumnIndex);
                 String section = cursor.getString(sectionColumnIndex);
                 String img = cursor.getString(imgColumnIndex);
                 int isReadLater = cursor.getInt(isReadLaterColumnIndex);
-                listReadLater.add(new News(category, title, section, img, body, "", isReadLater, id));
+                listReadLater.add(new News(title, section, img, body, "", isReadLater, id));
             }
             adapter.notifyDataSetChanged();
         }

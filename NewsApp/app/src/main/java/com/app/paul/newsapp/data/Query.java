@@ -31,7 +31,7 @@ final class Query {
     }
 
     /**
-     *
+     * Method for getting News List filled with json data
      * @param path path of the query
      * @return list of news
      */
@@ -41,7 +41,7 @@ final class Query {
         try{
             jsonParsed = makeHttpRequest(url);
         } catch (IOException ignored){
-            Log.e(LOG_TAG, "Json Ignored ", ignored);
+            Log.e(LOG_TAG, "Json Ignored ");
         }
         return extractJson(jsonParsed);
     }

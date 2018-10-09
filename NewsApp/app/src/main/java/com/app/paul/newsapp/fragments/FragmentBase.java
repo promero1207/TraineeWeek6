@@ -397,12 +397,11 @@ public class FragmentBase extends Fragment implements AdapterRvMainNews.OnItemCl
     }
 
     /**
-     * Method for filling the list whith database info
+     * Method for filling the list with database info
      * @param cursor cursor from database
      */
     private void loadDataBase(Cursor cursor) {
         int idColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry._ID);
-        int categoryColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_CATEGORY);
         int nameColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_NEWS_NAME);
         int bodyColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_NEWS_BODY);
         int sectionColumnIndex = cursor.getColumnIndex(NewsContract.NewsEntry.COLUMN_NEWS_SECTION);
@@ -412,13 +411,12 @@ public class FragmentBase extends Fragment implements AdapterRvMainNews.OnItemCl
         try {
             while (cursor.moveToNext()) {
                 String id = cursor.getString(idColumnIndex);
-                int category = cursor.getInt(categoryColumnIndex);
                 String title = cursor.getString(nameColumnIndex);
                 String body = cursor.getString(bodyColumnIndex);
                 String section = cursor.getString(sectionColumnIndex);
                 String img = cursor.getString(imgColumnIndex);
                 int isReadLater = cursor.getInt(isReadLaterColumnIndex);
-                newsList.add(new News(category, title, section, img, body, "", isReadLater, id));
+                newsList.add(new News(title, section, img, body, "", isReadLater, id));
             }
             adapter.notifyDataSetChanged();
         }
